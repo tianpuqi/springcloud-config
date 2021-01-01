@@ -1,0 +1,405 @@
+#项目端口
+server:
+  basics-port: 9011
+  order-port: 9012
+  pay-service-port: 9013
+  healthy-port: 9014
+  job-port: 9015
+  customer-port: 9016
+  pay-port: 8115
+  app-port: 8116
+  website-port: 8117
+
+###################################################################################################
+
+#项目通用配置信息（业务配置信息）
+csp:
+  #简单的key-value值
+  SimpleKeyValue:
+    #配置手机号段
+    mobileHead: "[\"134\",\"135\",\"136\",\"137\",\"138\",\"139\",\"150\",\"151\",\"152\",\"157\",\"158\",\"159\",\"187\",\"188\",\"130\",\"131\",\"132\",\"155\",\"156\",\"185\",\"186\",\"133\",\"153\",\"180\",\"189\"]"
+    #用户头像
+    userHeadPics: "[\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgOne.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgTwo.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgThree.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgFour.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgFive.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgSix.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgSeven.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgEight.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgNine.png\",\"http://resources.ybzstj.com/csp/prod/uploadImg/headImgTen.png\"]"
+    #配置解读医生
+    unscrambleDoctorInfo: "[{\"headPic\":\"http://resources.ybzstj.com/headPic/liuzhenyi.png\",\"doctorName\":\"刘振毅\",\"hospital\":\"上海长海医院\",\"rate\":0.1,\"title\":\"主任医师\"},{\"headPic\":\"http://resources.ybzstj.com/headPic/huqing.png\",\"doctorName\":\"胡青\",\"hospital\":\"中建三局武汉中心医院\",\"rate\":0.15,\"title\":\"主任医师\"}]"
+    # .net core API的Web地址（ 生产地址）
+    netCoreAPIUrl: "http://10.30.179.65:3908"
+    #环境标识（1开发 2测试 3生产）
+    env: 3
+    #是否打开swagger
+    whetherOpenSwagger: false
+    #首页弹窗信息
+    suspendWindowAdInfo: "{\"id\":\"2\",\"isToastOpen\":\"false\",\"toastImage\":\"http://resources.ybzstj.com/csp/dev/toast190129.png\",\"toastSrc\":\"http://h5.ybzstj.com/telReportAnalyze.html#/getCouponIn\",\"isPopOpen\":\"true\",\"popImage\":\"http://resources.ybzstj.com/csp/dev/toast190129.png\",\"popSrc\":\"http://h5.ybzstj.com/telReportAnalyze.html#/getCouponIn\"}"
+    #默认短信验证码
+    smsCode: 67
+    #APPStore链接地址
+    downloadAPPLink: "http://sj.qq.com/myapp/detail.htm?apkName=com.ihaozuo.plamexam"
+    #H5基本地址
+    webappurl: "http://webapp.ybzstj.com/"
+    #H5分享配置列表
+    share: "[{\"sharePicUrl\":\"\",\"shareSummary\":\"\",\"shareTitle\":\"\",\"shareType\":\"1\",\"shareUrl\":\"http://h5.ybzstj.com/AppAVShare.html#/article/\"},{\"sharePicUrl\":\"\",\"shareSummary\":\"\",\"shareTitle\":\"\",\"shareType\":\"2\",\"shareUrl\":\"http://h5.ybzstj.com/AppAVShare.html#/video/\"}]"
+    #广告位标记
+    banner: "[{\"type\":1,\"bannerImage\":\"http://resources.ybzstj.com/default/ActivePositionImages/banner@2x.png\",\"appendInfo\":\"http://h5.ybzstj.com/telReportAnalyze.html#/native/8a9e33c165c84aff0165c86dd2820697\",\"h5Url\":\"http://h5.ybzstj.com/telReportAnalyze.html#/native/8a9e33c165c84aff0165c86dd2820697\"}]"
+    bannerInfo: "[{\"appendInfo\":{},\"bannerImage\":\"http://resources.ybzstj.com/csp/dev/banner190129.png\",\"type\":1,\"h5Url\":\"http://h5.ybzstj.com/telReportAnalyze.html#/getCouponIn\"},{\"appendInfo\":{},\"bannerImage\":\"http://resources.ybzstj.com/csp/prod/uploadImg/banner_1212_2.png\",\"type\":1,\"h5Url\":\"http://h5.ybzstj.com/telReportAnalyze.html#/shopActivity\"}]"
+    simpleValues: "[{\"type\":1,\"value\":\"http://h5.ybzstj.com/telReportAnalyze.html#/native/8a9e33c165c84aff0165c86dd2820697\"},{\"type\":2,\"value\":\"健管师的回答仅代表其专业经验给的建议，供您参考，具体诊疗请前往医院进行\"},{\"type\":3,\"value\":\"http://webapp.ybzstj.com/AppAVShare.html#/video/8a9e33c16619b33301665cc042076d8a/noLoad\"}]"
+    #待分配订单 一个商品挂一个医生 死的医生doctorId
+    doctorAssignsAuthority: 8a9e3257648d23af01648e1e129b0067
+    #待分配订单 有分配医生权限的 死的医生doctorId 严医生 周敏 吴雨 俞登
+    doctorDistributed: "8a9e3257648d23af01648e1e129b0067,8a9e3257648d23af0164cbcb9e190085,8a9e32576619bbff016656b2c4be14fb,8a9e325766a3fb190166a4091c9e0029"
+    #电话报告解读商品配置
+    phoneProduct: "[{\"type\":1,\"name\":\"全部异常电话解读\",\"id\":\"8a9e33c165c84aff0165c86dd2820697\",\"desc\":\"全部异常指标病理、关联分析\",\"productIcon\":\"http://resources.ybzstj.com/csp/prod/two.png\"},{\"type\":2,\"name\":\"单项异常电话解读\",\"id\":\"8a9e325765c84e5e0165c887822c00a4\",\"desc\":\"分析病理，病因，健康改善方案\",\"productIcon\":\"http://resources.ybzstj.com/csp/prod/one.png\"},{\"type\":3,\"name\":\"整份报告电话解读\",\"id\":\"8a9e33c169e25b1c016a105b2f4d7c1c\",\"desc\":\"历年报告对比，健康趋势分析\",\"productIcon\":\"http://resources.ybzstj.com/csp/prod/three.png\"}]"
+    #机构业务白名单（是否展示付费电话报告解读）
+    institutionNameList: "[\"xazy004\",\"bjbr271\",\"cdzl032\"]"
+    #机构业务白名单（是否展示一元听等付费项）
+    institutionOneProductNameList: "bjbr271,cdzl032"
+    #允许前置发送ccs短信的机构
+    # preCCSUnitCodes: "myrj011,bjbr236,myrj003,bjbr081,bjbr257,myrj010,myrj039,myrj045,hzmd032,bjbr033"
+    preCCSUnitCodes: "bjbr016,bjbr022,bjbr097"
+    #1+x获取体检套餐 短信验证码白名单
+    additionWhitelist: "18843256478,15543535435,15614566589,15547896247,15549824568,16554864657,17743296281,14562395467,17762517469,16643298178,17962741968,17942871690,18962724987,15546798136,14462981768"
+    #短信跳转H5地址
+    updateAppointmentAfterUrl: "http://h5.ybzstj.com"
+    #app 默认一元听产品名称搜索关键词
+    queryKeyWords: "血糖,窦性心律不齐,血压偏低,血红蛋白降低,血小板计数降低,肝血管瘤,子宫囊肿,十二指肠球部溃疡,角膜炎,肺结核,鼻窦炎,白带白细胞阳性"
+    #默认一元听试听商品
+    oneProductAuditions: "{\"type\":1,\"voiceUrl\":\"http://resources.ybzstj.com/csp/audio/20180724/1532439217000.mp3\",\"voiceTime\":85}"
+    #临时加的复检计划 机构的短信额度
+    planSMSAmount: "[{\"institutionCode\":\"bjbr046\",\"quantity\":10000},{\"institutionCode\":\"bjbr002\",\"quantity\":10000}]"
+    #1+x查询可预约时间段 后置天数
+    postprocessingDays: 60
+    #1+X同步团检数据
+    syncGroupReservationBeforeDays: 3
+    #钉钉配置
+    webhooktoken: "https://oapi.dingtalk.com/robot/send?access_token=c75e0e7e21d7e0d629769d8c8fe47d7282a5ad620b36c99dbc7e39acb1ab1595"
+    #钉钉配置
+    goodsWebHookToken: "https://oapi.dingtalk.com/robot/send?access_token=192ea512f1cd7dd3b955dd03e382387c17d7f73f17856e4f5f1d939ece091af0"
+    #订单未支付失效时间（小时）
+    maxOverTimes: 24
+    #图文咨询订单至完成时间设定（小时）
+    imgTextConsultationOrderMaxOverTimes: 1
+    #elasticsearch 聚合的大小设置(0、查询全部)
+    aggCount: 0
+    # 服务关闭
+    whetherInUse: true
+    #个检预约体检时间
+    reserveDate: 3
+    #节假日放假时间
+    offDayTimeListStr: "2019-11-04,2019-11-05"
+    #节假-补班时间
+    workDayTimeListStr: "2019-11-02"
+    #节假日商品详情页面通知文案
+    productDetailNotice: "掌上体检报告解读医生团队，竭诚为您服务"
+    #快速电话报告解读简单描述
+    quickPhoneDesc: "下单后10分钟收到医生服务电话"
+    #快速电话报告解读提示信息（平台类商品）
+    quickPhoneNotice: "暂停（工作日9:00-18:00开通）"
+    #快速电话报告解读提示信息（个人医生类商品）
+    quickPhoneNoticeWithDoctor: "暂不支持"
+    #电话报告解读单个时间段最大下单数量
+    phoneOrderMaxCount: 2
+    #唤醒app地址
+    callApp: "http://10.50.50.128:9000/AppMsgLink.html#/callApp"
+  #商品注意事项
+  MattersNeedingAttention:
+    #个检购买须知
+    individualSpection: "1、线上购买发票统一由掌上体检提供（不开具医院发票），你可以在工作日9；00-18：00致电掌上体检客服 400-920-6260\n2、体检套餐购买后不支持退款"
+    #电话报告解读购买须知
+    phoneConsultOrderDetail: "1、服务流程：\n即时服务：购买成功后，平台将在订单支付成功后5分钟给你来电\n预约服务：购买预约成功后，平台将在预约时间给你来电\n2、退款提示：\n即时服务：由于是即时服务，购买成功后，订单不支持退款\n预约服务：距离预约服务时间小于30分钟不支持退款\n3、通话失败，本次咨询不收费，系统将再次发送预约服务消息\n4、服务由掌上体检医生提供，与体检中心医生无关"
+    #商品购买须知
+    nandafeuteSupplierService: "服务类商品，开始服务后不可申请退款\n实物类商品，商品发货后不可退款"
+  #app下载地址
+  AppVersion:
+    iosDownLink: https://itunes.apple.com/us/app/zhang-shang-ti-jian-jian-kang/id1172806532?l=zh&amp;amp;ls=1&amp;amp;mt=8
+    androidDownLink: http://a.app.qq.com/o/simple.jsp?pkgname=com.ihaozuo.plamexam
+  #工作时间配置
+  WorkTime:
+    remark: 工作时间9:00-18:00，可购买预约医生电话服务
+    #暂时配置周敏
+    doctorId: 8a9e3257648d23af0164cbcb9e190085
+    #暂时配置武伟
+    existDoctorId: 8a9e325765d71f510165e64f211f0875
+  #微信公众号相关配置信息
+  Wechat:
+    appid: wx7774cb7c47b3a60f
+    appsecret: e58978a4234fe19784fd1824ef883bad
+  # CCS 相关配置信息
+  CCS:
+    appstore: "http://android.myapp.com/myapp/detail.htm?apkName=com.ihaozuo.plamexam&ADTAG=mobile"
+    appurl: "http://h5.ybzstj.com/"
+    jobcron: "0 30 2 * * ? *"
+    #临时补救短信计划执行日期
+    dateString: "2018-11-21 00:00:00"
+  #又拍云工具配置信息
+  UpYun:
+    baseUrl: http://resources.ybzstj.com/
+    spaceName: zhangshangtijian
+    operatorName: yubooperate
+    operatorPwd: mb2M/fI9OejtvYr0
+    savePath: CSPO/PRO
+  #视频又拍云工具配置信息
+  VideoUpYun:
+    baseUrl: http://video.ybzstj.com
+    token: 1q2w3e4r5t6y
+    validSecond: 600
+  #pay-gateway（支付网关配置信息）
+  Gateway:
+    baseUrl: http://payapi.ybzstj.com/pay
+    apiName: YB_PAY_API_V1
+    apiSecret: 1!2@3#4$5%6^
+    whetherOpenSign: true
+    #安徽医科大学第二附属医院
+    jcMerchantId: 630134010001
+    jcSecret: e80e69d9af0542649773346cd1fae886
+  #app-api（app网关配置信息）
+  AppApi:
+    apiName: YB_APP_API_V1
+    apiSecret: 1!2@3#4$5%6^
+    whetherOpenSign: true
+  #app-api（app网关配置信息）
+  Website:
+    apiName: YB_WEB_API_V1
+    apiSecret: 1!2@3#4$5%6^
+    whetherOpenSign: true
+    #是否添加util工具开关
+    whetherOpenUtilApi: true
+  #掌上体检接口参数
+  Okhttp:
+    basicUserName: HZ_PME_API_V1
+    basicSignSecret: 1!2@3#4$5%6^
+    basicUrl: http://zstj.ihaozhuo.com:91/api/
+  #电话报告解读相关参数
+  CloudPhone:
+    # 拨打电话配置
+    polyLinkUrl: "http://47.92.159.133:8080/ipbx/"
+    polyLinkPasswordKey: "0000"
+    #呼叫类型,1:一个分级一个外线,2:两个外线
+    polyLinkType: 2
+    #分机号
+    polyLinkUser: "808"
+    phoneUrl: "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel="
+    medicalReportAppKey: "haozhuohealth"
+    medicalReportSignkey: "haozhuo@2015TEST"
+    medicalReportCommurl: "http://100.98.44.98:8082/api"
+    medicalReportVoiceNum: 5
+    medicalReportMobileOnOff: true
+    electricMedicalAppKey: "dzbl"
+    electricMedicalSignKey: "dzblhz@2017TEST"
+    electricMedicalUrl: "http://Hz-health.com.cn:59001/api/ElectricMedical/PostHPatientList"
+    biaoruanAppKey: "haozhuohealth"
+    biaoruanSignKey: "haozhuo@2015TEST"
+    biaoruanUrl: "http://10.25.77.235:8083"
+  #短信发送
+  SmsBaseConfig:
+    #批量短信单次发送数量
+    batchDataSize: 500
+    #1.漫道 2.创蓝 0:随机
+    singleSupplier : 1
+    #1.漫道 2.创蓝
+    batchSupplier : 1
+    #批量短信开关
+    batchOnOff: true
+  #漫道
+  Mdsms:
+    smsSn: "SDK-BBX-010-24869"
+    smsUrl: "http://sdk.entinfo.cn:8061/webservice.asmx"
+    smsPassword: "01e^^d6-"
+    #下面的三条配置会在以后移除-----------
+    #短信开关 true 开; false 关
+    onOff: true
+    #批量短信开关
+    batchOnOff: true
+    batchDataSize: 500
+  #创蓝
+  ChuangLanSms :
+    smsUrl: "http://smssh1.253.com"
+    singleAccount: "N4056523"
+    singlePwd: "YbErMZCvsJ549e"
+    batchAccount: "M7134224"
+    batchPwd : "6L3JASIBdw44a6"
+  #极光推送
+  Jpush:
+    appKey: 750c95297adeffc03b5439cb
+    masterSecret: a825c0ee2989e93a3be4c85c
+    production: true
+    timeToLive: 90
+  #job定时配置
+  JobConfig:
+    serverZstjUrl: http://zstj.ihaozhuo.com:91/
+    getcustomerbyinstitutionUrl: "http://100.98.44.98:8082/api"
+    appKey: haozhuohealth
+    appSecret: haozhuo@2015TEST
+    isreportjpush: true
+    #是否订单数据迁移开关
+    whetherOrderMigration: false
+    #是否同步zstj数据
+    whetherSyncZstjuser: false
+    #数据同步cron表达式
+    syncDataCron: "0 0/10 * * * ?"
+    syncGroupReservationCron: "0 0/30 * * * ? *"
+    reportCron: "0 0 19 * * ?"
+    smsReportCorn: "0 0 12 * * ? *"
+    smsUserReport: 5
+    syncReportCron: "0 0 1 * * ? *"
+    #每日发送体检预约提醒
+    notifyCheckReservationCorn: "0 0 7 * * ?"
+    #复检建议计划cron
+    recheckplanCron: "0 0 0 * * ? *"
+    #每日凌晨1点把商品推进redis cron
+    productJobToRedisCron: "0 0 1 * * ?"
+    #限时活动cron
+    activeCron: "0 00 20 * * ?"
+    #对有体检报告未添加体检报告用户发送添加体检报告短信任务执行开始相关配置
+    whetherSmsReport: true
+    executeSmsReportInsCode: "cdzl060"
+    #给H5注册，但未下载APP的用户发短信提示
+    whetherSmsH5: true
+    executeSmsH5InsCode: "cdzl060"
+    #清洗活跃标签cron
+    cleanoutActivityLabelCron: "0 0 23 * * ?"
+    #补充ccs漏发短信cron
+    omitForCCSCron: "0 40 12 * * ? "
+    #判断时间是否需要添加解读信息 并做相应操作的-cron
+    unscrambleUserInfoCron: "0 0/1 * * * ?"
+    #个检预约到检提示cron
+    individualInspectionCron: "0 00 10 * * ?"
+    #通知用户添加体检报告
+    notifyUserAddReportCron: "0 0 20 * * ?"
+    #同步体检报告
+    syncReportInfoCron: "0 0 1 * * ?"
+    #给随访医生发送短信(每日在上八点给医生发送短信内容)
+    smsVisitDoctorCron: "0 0 8 * * ? "
+    #客户满意度评价计划
+    healthyEvaluatePlanCron: "0 0 8 * * ? "
+    #前置ccs短信cron
+    preForCCSCron: "0 0 8 * * ?"
+    #解锁报告补偿cron
+    unLockReportCompensateCron: "0 0 1 * * ?"
+  #默认平台医生工作时间
+  PlatformDoctor:
+    WorkDayTime: "9,10,11,12,13,14,15,16"
+    OffDayTime: ""
+    TempConfigTime: "{\"2019-12-18\":\"\"}"
+    #TempConfigTime: "{\"2019-04-28\":\"9,10,11,12,13,14,15,16,17\",\"2019-05-01\":\"\",\"2019-05-02\":\"\",\"2019-05-03\":\"\"}"
+
+  #及时服务医生工作时间
+  ImmediateService:
+    WorkDayTime: ""
+    # WorkDayTime: "9,10,11,12,13,14,15,16,17,18"
+    OffDayTime: ""
+    TempConfigTime: "{}"
+  #免费咨询服务工作时间
+  FreeConsultationService:
+    # WorkDayTime: "9,10,11,12,13,14,15,16"
+    WorkDayTime: ""
+    OffDayTime: "9,10,11,12,13,14,15,16"
+    TempConfigTime: "{\"2019-09-27\":\"\",\"2019-09-28\":\"\",\"2019-09-29\":\"\",\"2019-09-30\":\"\",\"2019-10-01\":\"\",\"2019-10-02\":\"\",\"2019-10-03\":\"\",\"2019-10-04\":\"\",\"2019-10-05\":\"\",\"2019-10-06\":\"\",\"2019-10-07\":\"\"}"
+    # Message: "掌上体检健康管理师的工作时间为9:00-18:00，如有问题请留言，我们会在工作后第一时间给您回复。"
+    Message: "免费咨询服务暂时停止服务!"
+
+  #活动时候发送push和短信的配置
+  Active:
+    #活动开关
+    OnOff : false
+    #活动用户范围 ，几天内登录
+    LoginDay: 3
+    SmsContent: "【掌上体检】冬天不想动，躺着也能瘦。14天减8斤懒人减脂套餐低至3折。更多活动内容点击 ${link} 退订回N"
+    Link : "http://h5.ybzstj.com/telReportAnalyze.html#/shopActivity"
+    PushAlert: "既然冬季不想动，不如躺着来享瘦。14天轻松减8斤，冬季懒人减脂套餐限时3折中。"
+    PushAppendData: "{\"rootType\":34}"
+  #消费者相关配置
+  CustomerValue:
+    #需要落地复检数据的机构
+    recheckInsCodeList: "bjbr046,bjbr115"
+  #优惠券配置
+  CouponTemplateConfig :
+    addReport : "8a9e3257683c186a01685b1cfe5c5992"
+    addReportTwo : "8a9e33c1683c13d901685b1e24216682"
+    orderPay : ""
+    orderUnPay : "8a9e33c1683c13d901685b1e24216682"
+  #邀请领优惠券
+  InviteRegister:
+    title: "呼朋唤友，一起来领商城优惠券，"
+    remark: "成功邀请1位好友，邀请人与被邀请人共同获得一次免费选券机会，最高金额{0}元"
+    money: 20
+    shareUrl: "http://h5.ybzstj.com/telReportAnalyze.html#/shareCouponOut/{0}/{1}"
+    h5Url: "http://h5.ybzstj.com/telReportAnalyze.html#/getCouponIn"
+    photoShareRemark: "我邀请你加入掌上体检\n加入掌上体检，热门商品半价优惠券任你选"
+    shareDetail: "点击链路注册加入掌上体检，热门商品优惠券,半价商品任你选 {0}"
+    #活动领取的优惠券
+    couponListStr: "8a9e33c16882eafb01689e4bb0e14a95,8a9e33c16882eafb01689e4d624c4b02,8a9e33c16882eafb01689e4ecdc74b55,8a9e32576882efcb01689e5012b43b25,8a9e33c16882eafb01689e53f2ce4bf4,8a9e33c16882eafb01689e55d32e4c68"
+    backGroundUrl: "http://resources.ybzstj.com/csp/prod/uploadImg/activity_visite.png"
+  #报告相关的配置
+  ReportConfig:
+    #默认报告锁定时间
+    defaultLockTime: 2
+    #默认解锁时间（0点后几个小时解锁）
+    defaultUnLockTime: 2
+    #报告列表注意事项描述
+    reportAttention: 此进度仅代表电子报告，纸质报告完成情况以医院为准
+  #健管平台相关的配置
+  HealthyPlatform:
+    #开通复检短信的机构
+    recheckSmsList: ""
+    #开通随访短信的机构
+    visitSmsList: ""
+    #开通评价计划短信机构
+    evaluateSmsList: ""
+
+###################################################################################################
+
+#服务通用配置（配置一些数据源连接信息）
+service:
+  #日志打印级别
+  loggingLevel: ERROR
+  #mysql数据库连接源信息
+  datasource:
+    url: jdbc:mysql://10.26.28.49:3306/zstjcsp_pro?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: dbuser
+    password: Yubodb@20180701
+  dubbo:
+    registry:
+      address: 10.30.188.213                   # zookeeper注册中心的地址
+      port: 2181                              # zookeeper注册中心的端口
+    protocol:
+      name: dubbo
+      serialization: hessian2
+      threads: 500
+    provider:
+      retries: 0   # 服务调用重试次数，服务发布者不给重试，让服务调用者自己重试
+    consumer:
+      timeout: 30000
+      check: false                         # 服务启动时检查被调用服务是否可用
+      retries: 0                           # 服务调用重试次数
+  #redis配置
+  redis:
+    job-database: 1
+    basic-database: 0
+    pay-database: 0
+    order-database: 1
+    app-database: 2
+    healthy-database: 3
+    host: 10.30.188.213
+    port: 6379
+    password: ybqaz123456     # 密码（默认为空）
+    timeout: 6000  # 连接超时时长（毫秒）
+  #rabbitmq
+  rabbitmq:
+    host: 10.30.188.213
+    port: 5672
+    username: rabbitmq
+    password: rabbituser@123
+    virtualhost: /
+  #mangodb连接信息
+  mongodb:
+    uri-basic: mongodb://dbuser:Yubomongo2018@10.30.179.65:27017/cspmongo
+    uri-thirdpeis: mongodb://yuboadmin:yubo2018@10.25.79.113:27017/ThirdPeis
+    uri-dtsMongo: mongodb://yuboadmin:yubo2018@10.25.79.113:27017/DTSDBPRD
+  #使用jest操作elasticsearch
+  elasticsearch:
+    cluster-name: elasticsearch
+    cluster-host: 10.30.179.65
+    cluster-port: 9300
+    cluster-nodes: 10.30.179.65:9300
+  #kafka相关的配置
+  kafka:
+    bootstrap-servers: 10.30.179.65:9092
